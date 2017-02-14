@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;org.compiere.process.calculatePackWiseMovementQty.java&apos; to &apos;CalculatePackWiseMovementQty.java&apos;&#x0D;&#x0A;- Original project: &apos;SPC_customization&apos;&#x0D;&#x0A;- Original element: &apos;org.compiere.process.calculatePackWiseMovementQty.java&apos;&#x0D;&#x0A;- Renamed element: &apos;org.compiere.process.CalculatePackWiseMovementQty.java&apos;" description="Rename compilation unit &apos;calculatePackWiseMovementQty.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/base\/src&lt;org.compiere.process{calculatePackWiseMovementQty.java" name="CalculatePackWiseMovementQty.java" references="false" stamp="1465186505893" version="1.0"/>
+</session>

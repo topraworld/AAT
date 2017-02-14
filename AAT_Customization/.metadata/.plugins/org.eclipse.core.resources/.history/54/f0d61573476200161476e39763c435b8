@@ -1,0 +1,104 @@
+package org.compiere.process;
+
+import java.util.Calendar;
+import java.util.Properties;
+
+import org.compiere.apps.ADialog;
+import org.compiere.apps.ADialogDialog;
+import org.compiere.model.CalloutEngine;
+import org.compiere.model.GridField;
+import org.compiere.model.GridTab;
+import org.compiere.model.MBPartner;
+import org.compiere.model.MProduct;
+
+public class StudentReniwel extends CalloutEngine{
+
+	//Created by chathuranga - Topra (Pvt) Ltd
+	//Date - 2016/06/07
+	//AAT Customization
+	
+	public String getLastRenYear_StudentID (Properties ctx, int WindowNo, GridTab mTab, GridField mField, Object value)
+	{
+		if(value!=null && mTab.getValue("C_DocTypeTarget_ID") != null){
+			try{
+				int c_bpartner_id =(mTab.getValue("c_bpartner_id")) == null ? 0:(Integer)mTab.getValue("c_bpartner_id");
+				MBPartner bpartner = MBPartner.get(ctx,c_bpartner_id);
+				
+				//clear existing data
+				mTab.setValue("last_renewed_year", "");
+				mTab.setValue("c_student_id", "");
+				
+				//Membership reniewel target document id > C_DocTypeTarget_ID=1000108
+				if(mTab.getValue("C_DocTypeTarget_ID").toString().equals("1000108")){
+					if(bpartner.get_Value("mem_last_renew_year")!=null){
+						mTab.setValue("last_renewed_year", bpartner.get_Value("mem_last_renew_year").toString());
+						mTab.setValue("c_student_id", bpartner.get_Value("value").toString());
+					}
+				//Student reniewel target document id > 	
+				}else if(mTab.getValue("C_DocTypeTarget_ID").toString().equals("1000049")){
+					if(bpartner.get_Value("last_renewed_year")!=null && bpartner.get_Value("c_student_id")!=null){
+						mTab.setValue("last_renewed_year", bpartner.get_Value("last_renewed_year").toString());
+						mTab.setValue("c_student_id", bpartner.get_Value("c_student_id").toString());
+						
+					}else{
+						ADialog.error(WindowNo, null, "Problem with Student last renewed year! Your are not allowed to make reniewel for this student.");
+					}
+				}
+			}
+			catch(Exception ex){
+				ex.printStackTrace();
+			}
+		}
+		return "";	
+	}
+	
+	public void validateCurrentYearReniewel(Properties ctx, int WindowNo, GridTab mTab, GridField mField, Object value){
+		try{
+			if(value!=null){
+				GridTab pmTab = mTab.getParentTab();
+				//validate for document type for student renievel
+				if(pmTab.getValue("C_DocTypeTarget_ID").toString().equals("1000049")){
+					//validate last reniewed not null
+					String lry = (pmTab.get_ValueAsString("last_renewed_year")) == null?"":pmTab.get_ValueAsString("last_renewed_year");
+					if(!lry.equals("")){
+						//get user entered product validate for current year
+						int current_year = Integer.parseInt(lry);
+						MProduct mProduct= MProduct.get(ctx,Integer.parseInt(mTab.getValue("m_product_id").toString()));
+						int search_key = Integer.parseInt(mProduct.getValue().substring(2));//to get the product year from search key
+						if(search_key > current_year){
+							this.validateDuplicateLine(ctx , WindowNo, mTab,mField);
+							return;
+						}
+						else{
+							mTab.dataIgnore();
+							ADialog.error(WindowNo, null, "Invalid selection - Reniewel year!");
+						}
+						
+					}else{
+						mTab.dataIgnore();
+						ADialog.error(WindowNo, null, "Problem with Student last renewed year! Your are not allowed to make reniewel for this student.");
+					}
+				}
+				else{
+					return;
+				}
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	//validate for invoice line same product
+	//only for service category products
+	private void validateDuplicateLine(Properties ctx, int WindowNo, GridTab mTab, GridField mField){
+		try{
+			for (GridField gf : mTab.getFields()) {
+				System.out.println("Selected product:"+ gf.getValue());
+			}
+			
+		}catch(Exception ex){
+		}
+	}
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;WFActivity.java&apos; to &apos;AAT_Customization/client/src/org.compiere.apps.wf&apos;&#x0D;&#x0A;- Original project: &apos;AAT_LIVE_UPDATED&apos;&#x0D;&#x0A;- Destination element: &apos;AAT_Customization/client/src/org.compiere.apps.wf&apos;&#x0D;&#x0A;- Original element: &apos;org.compiere.apps.wf.WFActivity.java&apos;" description="Copy compilation unit" destination="=AAT_Customization/client\/src&lt;org.compiere.apps.wf" element1="/client\/src&lt;org.compiere.apps.wf{WFActivity.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1467613156447" units="1" version="1.0"/>
+</session>

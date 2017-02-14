@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;WorkFlowValidation.java&apos; to &apos;org.compiere.apps.wf.CheckDigit.java&apos;&#x0D;&#x0A;- Original project: &apos;AAT_Customization&apos;&#x0D;&#x0A;- Destination element: &apos;org.compiere.apps.wf.CheckDigit.java&apos;&#x0D;&#x0A;- Original element: &apos;org.compiere.process.WorkFlowValidation.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/client\/src&lt;org.compiere.apps.wf{CheckDigit.java" element1="/base\/src&lt;org.compiere.process{WorkFlowValidation.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1470111738068" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;org.compiere.process.StuentDOB&apos; to &apos;BpartnerDOB&apos;&#x0D;&#x0A;- Original project: &apos;AAT_Customization&apos;&#x0D;&#x0A;- Original element: &apos;org.compiere.process.StuentDOB&apos;&#x0D;&#x0A;- Renamed element: &apos;org.compiere.process.BpartnerDOB&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;StuentDOB&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/base\/src&lt;org.compiere.process{StuentDOB.java[StuentDOB" matchStrategy="1" name="BpartnerDOB" qualified="false" references="true" similarDeclarations="false" stamp="1468306845307" textual="false" version="1.0"/>
+</session>
